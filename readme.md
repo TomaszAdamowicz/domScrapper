@@ -123,8 +123,8 @@ const options = [
         type: String,
         selector: '.some-other-class',
         property: 'food',
-        createArray: true, // boolean
-        divider: ',' // string, divider used to create array
+        createArray: true, // Boolean
+        divider: ',' // String, divider used to create array
     }
 ]
 
