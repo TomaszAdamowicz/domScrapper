@@ -5,13 +5,14 @@ class Record {
 }
 
 class RecordCreator {
-	constructor(obj, elem, type, selector, property, createArray) {
+	constructor(obj, elem, type, selector, property, createArray, divider) {
 		this.elem = elem;
 		this.type = type;
 		this.selector = selector;
 		this.property = property;
 		this.createArr = createArray;
 		this.obj = obj;
+		this.divider = divider;
 	}
 	create() {
 		if (this.type === String) {
@@ -34,7 +35,8 @@ class RecordCreator {
 		}
 		else if (elem != null && this.createArr === true) {
 			const propertyValue = elem.innerText;
-			const propertyValueArr = propertyValue.split(';');
+			const divider = this.divider;
+			const propertyValueArr = propertyValue.split(divider);
 			obj[propertyName] = propertyValueArr;
 		}
 	}
@@ -80,7 +82,7 @@ class Scrapper {
 
 	prepareRecords(record, item){
 		this.options.forEach(option => {
-			const recordItem = new RecordCreator(record, item, option.type, option.selector, option.property, option.createArray);
+			const recordItem = new RecordCreator(record, item, option.type, option.selector, option.property, option.createArray, option.divider);
 
 			recordItem.create();
 		});
