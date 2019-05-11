@@ -4,7 +4,6 @@ class Record {
 	}
 }
 
-
 class RecordCreator {
 	constructor(obj, elem, type, selector, property, createArray) {
 		this.elem = elem;
@@ -53,8 +52,6 @@ class RecordCreator {
 	}
 }
 
-
-
 class Downloader {
 	constructor(url, blob){
 		this.url = url;
@@ -86,7 +83,7 @@ class Scrapper {
 			const recordItem = new RecordCreator(record, item, option.type, option.selector, option.property, option.createArray);
 
 			recordItem.create();
-		})
+		});
 	}
 
 	scrap(){
@@ -96,7 +93,7 @@ class Scrapper {
 			this.prepareRecords(newRecord, item);
 			delete newRecord.obj;
 			this.finalData.push(newRecord);
-		})
+		});
 	}
 
 	saveData(){
