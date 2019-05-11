@@ -29,6 +29,7 @@ class RecordCreator {
 		const propertyName = this.property;
 		const obj = this.obj;
 		const elem = this.elem.querySelector(this.selector);
+
 		if (elem != null && this.createArr === undefined) {
 			const propertyValue = elem.innerText;
 			obj[propertyName] = propertyValue;
@@ -45,6 +46,7 @@ class RecordCreator {
 		const items = this.elem.querySelectorAll(this.selector);
 		const valuesArr = [];
 		const obj = this.obj;
+		
 		if (items != null) {
 			[...items].forEach(item => {
 				valuesArr.push(item.innerText);
